@@ -52,10 +52,10 @@ const Contact = () => {
                 Feel free to reach out to me on any of the following platforms. I look forward to connecting with you!
             </p>
             <div className="flex flex-wrap justify-center gap-6">
-                <a href="https://www.linkedin.com/in/rf-gul" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.linkedin.com/in/fahad785" target="_blank" rel="noopener noreferrer">
                     <FaLinkedin className="text-3xl sm:text-4xl md:text-5xl" style={{ color: iconColor.linkedin }} />
                 </a>
-                <a href="https://github.com/dev-rfgul" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/dev-fahad785" target="_blank" rel="noopener noreferrer">
                     <FaGithub className="text-3xl sm:text-4xl md:text-5xl" style={{ color: iconColor.github }} />
                 </a>
                 <a href="https://twitter.com/rfgul" target="_blank" rel="noopener noreferrer">
