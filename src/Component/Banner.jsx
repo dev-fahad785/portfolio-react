@@ -26,10 +26,10 @@ const Banner = () => {
 
                     {/* Icons Section */}
                     <div className="flex justify-center md:justify-start space-x-6">
-                        <a href="https://github.com/dev-rfgul" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-800 hover:scale-110 transition-colors duration-300">
+                        <a href="https://github.com/dev-fahad785" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-800 hover:scale-110 transition-colors duration-300">
                             <FaGithub size={35} />
                         </a>
-                        <a href="https://www.linkedin.com/in/rf-gul" target="_blank" rel="noopener noreferrer" className="text-black hover:scale-110 hover:text-blue-600 transition-colors duration-300">
+                        <a href="https://www.linkedin.com/in/fahad785" target="_blank" rel="noopener noreferrer" className="text-black hover:scale-110 hover:text-blue-600 transition-colors duration-300">
                             <FaLinkedin size={35} />
                         </a>
                     </div>
@@ -43,6 +43,7 @@ const Banner = () => {
                             className="object-cover w-full h-full object-top  rounded-full"
                         />
                     </div>
+                    
                 </div>
             </div>
         </div>
