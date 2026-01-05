@@ -1,15 +1,15 @@
 // import {React} from 'react';
 import { useState, useEffect } from 'react';
-import Navbar from './Component/Navbar';
-import Banner from './Component/Banner';
-import AboutMe from './Component/About';
-import Projects from './Component/Projects';
-import Certificates from './Component/Certificates';
-import Contact from './Component/Contact';
-import Skills from "./Component/Skills";
-import Reviews from './Component/Reviews';
-import Loader from './Component/Loader'
-import Chatbot from './Component/Chatbot';
+import Navbar from './components/Navbar';
+import Banner from './components/Banner';
+import AboutMe from './components/About';
+import Projects from './components/Projects';
+import Certificates from './components/Certificates';
+import Contact from './components/Contact';
+import Skills from "./components/Skills";
+import Reviews from './components/Reviews';
+import Loader from './components/Loader'
+import Chatbot from './components/Chatbot';
 import { ScrollTimeline } from './components/lightswind/scroll-timeline';
 const App = () => {
   const [loading, setLoading] = useState(true);

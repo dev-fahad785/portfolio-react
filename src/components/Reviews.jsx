@@ -1,7 +1,7 @@
 
 import { cn } from "@/lib/utils";
 import Marquee from "@/components/magicui/marquee";
-import Heading from "../Component/Heading";
+import Heading from "./Heading";
 import { useState, useEffect, useMemo, useCallback } from "react";
 import {Quote } from "lucide-react";
 
