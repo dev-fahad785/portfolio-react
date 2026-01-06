@@ -91,7 +91,7 @@ const ReviewCard = ({ img, name, title, body }) => {
                 </div>
             </div>
             <blockquote
-                className="mt-3 text-sm max-h-40 overflow-auto pr-2 leading-relaxed text-gray-700 dark:text-gray-300 scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-700 scrollbar-track-transparent"
+                className="mt-3 text-sm max-h-40 overflow-auto pr-2 leading-relaxed text-gray-700 dark:text-gray-300 custom-scrollbar"
                 dangerouslySetInnerHTML={{ __html: isHovered ? highlightedBody : body }}
             />
         
