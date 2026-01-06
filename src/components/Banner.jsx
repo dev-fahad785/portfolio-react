@@ -3,6 +3,7 @@
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 // import React from "react";
 import ShinyButton from '@/components/magicui/shiny-button';
+import { TypeAnimation } from 'react-type-animation';
 
 const Banner = () => {
     return (
@@ -16,9 +17,23 @@ const Banner = () => {
                         <h1 className="text-4xl md:text-5xl font-semibold mb-2 transition-transform duration-500 ease-in-out transform hover:scale-105 hover:text-gray-700 dark:hover:text-gray-300 text-black dark:text-white">
                             Muhammad Fahad
                         </h1>
-                        <h1 className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-4 transition-transform duration-500 ease-in-out transform hover:scale-105 hover:text-black dark:hover:text-white">
-                            Junior Software Engineer 
-                        </h1>
+
+                        <div className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-4 h-8">
+                            <TypeAnimation
+                                sequence={[
+                                    'Junior Software Engineer',
+                                    2000,
+                                    'MERN/MEAN/Django Developer',
+                                    2000,
+                                    'AWS Beginner',
+                                    2000,
+                                ]}
+                                wrapper="span"
+                                speed={50}
+                                repeat={Infinity}
+                            />
+                        </div>
+
                     </div>
                     <div className="flex justify-center md:justify-start mb-4">
                         <ShinyButton text='Download CV' className="bg-black dark:bg-white text-white dark:text-black"/>
