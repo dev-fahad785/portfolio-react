@@ -1,55 +1,137 @@
 
-import React from 'react';
+import { useState } from 'react';
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
-const Card = ({ image, title, tags, btn1Url, btn2Url, btnText, btn2Text }) => {
-    return (
-        <div className="w-full max-w-sm bg-white rounded-lg shadow-lg border border-black border-opacity-60 transition-transform transform hover:scale-105">
-            {/* Image Container with Aspect Ratio */}
-            <div className="relative w-full pb-48"> {/* Aspect ratio container */}
+const Card = ({
+  title,
+  description,
+  features = [],
+  tags = [],
+  btn1Url,
+  btn2Url,
+  btnText,
+  btn2Text,
+  image, // optional image for certificate cards
+}) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <div
+      className="group w-full max-w-sm bg-white rounded-2xl border border-gray-200 hover:border-black/10 p-6 transition-all duration-500 hover:shadow-xl hover:shadow-gray-100/50 cursor-pointer relative overflow-hidden flex flex-col h-96"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Gradient Background on Hover */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-50/50 to-gray-100/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none" />
+
+      {/* Content Wrapper */}
+      <div className="relative z-10 flex flex-col flex-grow h-full">
+        
+        {/* Image (for certificates) or Title/Desc (for projects) */}
+        {image ? (
+             <div className="relative w-full h-48 mb-4 overflow-hidden rounded-lg">
                 <img
-                    className="absolute inset-0 w-full h-full object-cover rounded-t-lg p-2"
+                    className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
                     src={image}
                     alt={title}
                 />
             </div>
-            {/* Card Content */}
-            <div className="px-6 py-4">
-                <div className="font-bold text-2xl mb-2 text-gray-900">{title}</div>
-                <div className="flex flex-wrap gap-2">
-                    {tags.map(tag => (
-                        <span
-                            key={tag}
-                            className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-800 transition-colors hover:bg-gray-300 hover:text-gray-900"
-                        >
-                            {tag}
-                        </span>
-                    ))}
-                </div>
+        ) : (
+            <div className="mb-4 flex-shrink-0">
+            <h3 className="font-bold text-2xl mb-2 text-gray-900 line-clamp-1 group-hover:text-black transition-colors">{title}</h3>
+            {description && (
+                <p className="text-gray-600 text-sm leading-relaxed line-clamp-3 h-16">
+                {description}
+                </p>
+            )}
             </div>
-            {/* Buttons */}
-            <div className="px-6 pt-4 pb-2 flex flex-wrap justify-center gap-4">
+        )}
+        
+        {/* Title for image-based cards if needed below image */}
+         {image && <h3 className="font-bold text-xl mb-2 text-gray-900 group-hover:text-black transition-colors">{title}</h3>}
+
+
+        {/* Feature/Tag Section - Expandable middle section */}
+        <div className="relative flex-grow mb-4 overflow-hidden min-h-[6rem]">
+          {/* Tags (shown when not hovered) */}
+          <div className={`flex flex-wrap gap-2 transition-all duration-500 ${isHovered ? 'opacity-0 translate-y-4 hidden' : 'opacity-100 translate-y-0'}`}>
+              {tags.slice(0, 5).map((tag, index) => (
+                <span
+                  key={index}
+                  className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-md font-medium border border-gray-200"
+                >
+                  {tag}
+                </span>
+              ))}
+              {tags.length > 5 && <span className="text-xs text-gray-400">+{tags.length - 5}</span>}
+            </div>
+
+          {/* Features (shown when hovered) - Only if features exist */}
+          {features.length > 0 && (
+            <div className={`absolute inset-0 flex flex-col gap-2 transition-all duration-500 ${isHovered ? 'opacity-100 translate-y-0 delay-100' : 'opacity-0 -translate-y-4 pointer-events-none'}`}>
+              <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">
+                Features
+              </h4>
+              <div className="overflow-y-auto pr-1 max-h-full">
+                 {features.slice(0, 4).map((feature, index) => (
+                    <div
+                    key={index}
+                    className="flex items-start gap-2 text-xs text-gray-700 mb-1"
+                    >
+                    <div className="w-1.5 h-1.5 bg-black rounded-full mt-1 flex-shrink-0" />
+                    <span className="leading-tight">{feature}</span>
+                    </div>
+                ))}
+              </div>
+            </div>
+          )}
+           {/* If no features but tags exist, keep showing tags or show something else on hover? 
+               For certificates, maybe we just show tags always. 
+           */}
+            {features.length === 0 && image && isHovered && (
+                 <div className="absolute inset-0 flex flex-wrap gap-2 content-start">
+                  {tags.map((tag, index) => (
+                    <span
+                      key={index}
+                      className="px-2 py-1 bg-white/80 text-gray-800 text-xs rounded-md font-medium border border-gray-200 shadow-sm"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+               </div>
+            )}
+        </div>
+
+        {/* Action Buttons - Fixed at bottom */}
+       <div className="mt-auto pt-4 flex flex-wrap gap-3 z-10 flex-shrink-0">
+            {btn1Url && (
                 <a
                     href={btn1Url}
-                    className="py-2 px-6 border border-black rounded-lg text-black bg-white hover:bg-gray-900 hover:text-white transition-transform transform hover:scale-105"
+                    className="flex-1 flex items-center justify-center gap-2 py-2 px-4 text-sm font-medium border border-gray-300 rounded-lg text-gray-700 bg-white hover:bg-black hover:text-white hover:border-black transition-all duration-300 group/btn"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    {btnText}
+                    <FaGithub className="text-lg group-hover/btn:scale-110 transition-transform"/>
+                    {btnText || 'Code'}
                 </a>
-                {btn2Text && (
-                    <a
-                        href={btn2Url}
-                        className="py-2 px-6 border border-black rounded-lg text-black bg-white hover:bg-gray-900 hover:text-white transition-transform transform hover:scale-105"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        {btn2Text}
-                    </a>
-                )}
-            </div>
+            )}
+            
+            {btn2Text && btn2Url && (
+                 <a
+                 href={btn2Url}
+                 className="flex-1 flex items-center justify-center gap-2 py-2 px-4 text-sm font-medium border border-black rounded-lg text-white bg-black hover:bg-gray-800 transition-all duration-300 shadow-md shadow-gray-200 hover:shadow-lg group/btn2"
+                 target="_blank"
+                 rel="noopener noreferrer"
+               >
+                 <FaExternalLinkAlt className="text-sm group-hover/btn2:scale-110 transition-transform"/>
+                 {btn2Text}
+               </a>
+            )}
         </div>
-    );
+
+      </div>
+    </div>
+  );
 };
 
 export default Card;
-

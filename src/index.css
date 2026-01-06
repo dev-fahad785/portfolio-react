@@ -1,44 +1,47 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import '~@fontsource/poppins/index.css';
+/* @import '@fontsource/poppins'; */
 
-body {
+/* Font is likely loaded via package, but good to have fallback or specific weight imports if needed. 
+   If using @fontsource/poppins, usually import in main entry file or here. */
+
+:root {
   font-family: 'Poppins', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@keyframes glitter {
-  0%, 100% {
-      color: black;
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
-  10% {
-      color: #0077B5; /* LinkedIn blue */
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
-  20% {
-      color: #333; /* GitHub gray */
-  }
-  30% {
-      color: #1DA1F2; /* Twitter blue */
-  }
-  40% {
-      color: #4267B2; /* Facebook blue */
-  }
-  50% {
-      color: #E1306C; /* Instagram pink */
-  }
-  60% {
-      color: #FF0000; /* YouTube red */
-  }
-  70% {
-      color: #25D366; /* WhatsApp green */
-  }
-  80% {
-      color: #3B5998; /* Phone blue */
+
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-out forwards;
   }
 }
 
-.animate-glitter{
-  animation: glitter 5s infinite;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @layer base {
@@ -102,6 +105,7 @@ body {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }

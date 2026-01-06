@@ -1,85 +1,79 @@
 
-import React, { useState, useEffect } from 'react';
-import { FaLinkedin, FaGithub, FaTwitter, FaTiktok, FaInstagram, FaYoutube, FaWhatsapp, FaPhone } from 'react-icons/fa';
-import Heading from './Heading';
+import { FaInstagram, FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import Heading from "./Heading";
 
 const Contact = () => {
-    // Define initial colors and transitions
+  return (
+    <section id="contact" className="py-20 md:py-24 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
+      <div className="container mx-auto px-4">
+        {/* Heading */}
+        <Heading
+          heading="Contact Me"
+          subHeading="Let's build something amazing together"
+        />
 
-    const [iconColor, setIconColor] = useState({
-        linkedin: 'black',
-        github: 'black',
-        twitter: 'black',
-        facebook: 'black',
-        instagram: 'black',
-        youtube: 'black',
-        whatsapp: 'black',
-        phone: 'black',
-        tiktok:'black',
-    });
+        <div className="flex flex-col md:flex-row justify-center items-center gap-12 mt-12">
+          {/* Social Links Container */}
+          <div className="flex flex-wrap justify-center gap-6 md:gap-8">
+            {/* Instagram */}
+            <a
+              href="https://www.instagram.com/rfgul_/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative p-4 bg-gray-50 dark:bg-gray-800 rounded-full shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1"
+              aria-label="Instagram"
+            >
+              <FaInstagram className="text-3xl text-gray-700 dark:text-gray-300 group-hover:text-[#E1306C] transition-colors duration-300" />
+            </a>
 
-    const colors = {
-        linkedin: '#0077b5',
-        github: '#333',
-        twitter: '#1da1f2',
-        facebook: '#1877f2',
-        instagram: '#e4405f',
-        youtube: '#ff0000',
-        whatsapp: '#25d366',
-        phone: '#007bff',
-        tiktok:'#000',  
-    };
+            {/* GitHub */}
+            <a
+              href="https://github.com/dev-rfgul"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative p-4 bg-gray-50 dark:bg-gray-800 rounded-full shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1"
+              aria-label="GitHub"
+            >
+              <FaGithub className="text-3xl text-gray-700 dark:text-gray-300 group-hover:text-black dark:group-hover:text-white transition-colors duration-300" />
+            </a>
 
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            setIconColor(prevColors => {
-                const newColors = {};
-                Object.keys(prevColors).forEach(key => {
-                    // Toggle between black and respective color
-                    newColors[key] = prevColors[key] === 'black' ? colors[key] : 'black';
-                });
-                return newColors;
-            });
-        }, 1000); // Change every 1 second
+            {/* LinkedIn */}
+            <a
+              href="https://www.linkedin.com/in/rao-fatir-3363362a6/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative p-4 bg-gray-50 dark:bg-gray-800 rounded-full shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin className="text-3xl text-gray-700 dark:text-gray-300 group-hover:text-[#0077B5] transition-colors duration-300" />
+            </a>
 
-        return () => clearInterval(intervalId); // Cleanup on unmount
-    }, []);
-
-    return (
-        <div id='contact' className="flex flex-col items-center justify-center min-h-screen bg-white p-6 md:p-12 lg:p-24">
-            <Heading heading="Let's Connect" subHeading={"Ask or tell Something"} />
-            <p className="text-lg mb-6 md:mb-12 text-gray-700 max-w-md text-center">
-                Feel free to reach out to me on any of the following platforms. I look forward to connecting with you!
-            </p>
-            <div className="flex flex-wrap justify-center gap-6">
-                <a href="https://www.linkedin.com/in/fahad785" target="_blank" rel="noopener noreferrer">
-                    <FaLinkedin className="text-3xl sm:text-4xl md:text-5xl" style={{ color: iconColor.linkedin }} />
-                </a>
-                <a href="https://github.com/dev-fahad785" target="_blank" rel="noopener noreferrer">
-                    <FaGithub className="text-3xl sm:text-4xl md:text-5xl" style={{ color: iconColor.github }} />
-                </a>
-                <a href="https://twitter.com/rfgul" target="_blank" rel="noopener noreferrer">
-                    <FaTwitter className="text-3xl sm:text-4xl md:text-5xl" style={{ color: iconColor.twitter }} />
-                </a>
-                <a href="https://www.instagram.com/dev_rfgul" target="_blank" rel="noopener noreferrer">
-                    <FaInstagram className="text-3xl sm:text-4xl md:text-5xl" style={{ color: iconColor.instagram }} />
-                </a>
-                <a href="https://www.youtube.com/@dev-rfgul" target="_blank" rel="noopener noreferrer">
-                    <FaYoutube className="text-3xl sm:text-4xl md:text-5xl" style={{ color: iconColor.youtube }} />
-                </a>
-                <a href="https://wa.me/+923329296026" target="_blank" rel="noopener noreferrer">
-                    <FaWhatsapp className="text-3xl sm:text-4xl md:text-5xl" style={{ color: iconColor.whatsapp }} />
-                </a>
-                <a href="tel:+923329296026">
-                    <FaPhone className="text-3xl sm:text-4xl md:text-5xl" style={{ color: iconColor.phone }} />
-                </a>
-                <a href="https://www.tiktok.com/@dev_rfgul" target='_blank'>
-                    <FaTiktok className="text-3xl sm:text-4xl md:text-5xl" style={{ color: iconColor.tiktok }} />
-                </a>
-            </div>
-            <p className="text-sm text-gray-500 mt-6 md:mt-12">© 2024 Dev RF-GUL. All rights reserved.</p>
+            {/* Twitter/X */}
+            <a
+              href="https://x.com/rfgul_"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative p-4 bg-gray-50 dark:bg-gray-800 rounded-full shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1"
+              aria-label="Twitter"
+            >
+              <FaXTwitter className="text-3xl text-gray-700 dark:text-gray-300 group-hover:text-black dark:group-hover:text-white transition-colors duration-300" />
+            </a>
+          </div>
         </div>
-    );
+
+        {/* Email/Action CTA */}
+        <div className="text-center mt-12 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">
+           <a 
+              href="mailto:contact@rfgul.live"
+              className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-black hover:bg-gray-800 md:py-4 md:text-lg md:px-10 transition-transform hover:scale-105 shadow-lg"
+           >
+              Say Hello
+           </a>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Contact;
