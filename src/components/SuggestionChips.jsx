@@ -42,12 +42,12 @@ const SuggestionChips = ({ suggestions = [], disabled = false, onSelect, resetTr
     };
 
     return (
-    <div className="px-3 sm:px-4 py-2 bg-white/90 border-t border-gray-200">
+    <div className="px-3 sm:px-4 py-2 bg-white/90 dark:bg-gray-900/90 border-t border-gray-200 dark:border-gray-800">
             <div className="flex items-center justify-between mb-1.5">
-                <p className="text-[11px] sm:text-xs text-gray-500">Suggested questions</p>
+                <p className="text-[11px] sm:text-xs text-gray-500 dark:text-gray-400">Suggested questions</p>
                 <button
                     type="button"
-                    className="p-1 rounded-full text-gray-400 hover:text-gray-600 transition-colors duration-200"
+                    className="p-1 rounded-full text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-200"
                     aria-label="Hide suggestions"
                     onClick={onClose}
                     disabled={disabled}
@@ -67,20 +67,20 @@ const SuggestionChips = ({ suggestions = [], disabled = false, onSelect, resetTr
                             disabled={disabled}
                 className={`group flex items-center justify-between gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1.5 sm:py-1.5 rounded-full border text-xs sm:text-sm transition-all duration-200 ${
                                 isRecommended
-                    ? "border-gray-600 bg-gray-600 text-white hover:bg-gray-500"
+                    ? "border-gray-600 bg-gray-600 text-white hover:bg-gray-500 dark:border-gray-200 dark:bg-gray-200 dark:text-black dark:hover:bg-gray-300"
                                     : isCompleted
-                    ? "border-gray-400 bg-gray-200 text-gray-700 hover:bg-gray-300"
-                    : "border-gray-300 text-gray-700 bg-white hover:bg-gray-100 hover:border-gray-400"
-                } disabled:opacity-50 disabled:bg-gray-100 disabled:border-gray-200 disabled:text-gray-400 w-full sm:w-auto text-left`}
+                    ? "border-gray-400 bg-gray-200 text-gray-700 hover:bg-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-500"
+                    : "border-gray-300 text-gray-700 bg-white hover:bg-gray-100 hover:border-gray-400 dark:border-gray-700 dark:text-gray-300 dark:bg-gray-900 dark:hover:bg-gray-800 dark:hover:border-gray-600"
+                } disabled:opacity-50 disabled:bg-gray-100 disabled:border-gray-200 disabled:text-gray-400 dark:disabled:bg-gray-800 dark:disabled:border-gray-700 dark:disabled:text-gray-600 w-full sm:w-auto text-left`}
                             onClick={() => handleChipClick(absoluteIndex)}
                         >
                             <span className="font-medium pr-1">{item.label}</span>
         <FiArrowRight className={`transition-colors duration-200 ${
                 isRecommended
-            ? "text-white group-hover:text-gray-100"
+            ? "text-white group-hover:text-gray-100 dark:text-black dark:group-hover:text-gray-800"
                     : isCompleted
-            ? "text-gray-600 group-hover:text-gray-700"
-            : "text-gray-400 group-hover:text-gray-600"
+            ? "text-gray-600 group-hover:text-gray-700 dark:text-gray-500"
+            : "text-gray-400 group-hover:text-gray-600 dark:text-gray-500 dark:group-hover:text-gray-300"
                 }`} />
                         </button>
                     );

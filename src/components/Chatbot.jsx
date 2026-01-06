@@ -79,21 +79,21 @@ const ChatBot = () => {
     const MessageBubble = ({ message }) => (
         <div className={`flex items-start mb-3 ${message.sender === "user" ? "justify-end" : "justify-start"}`}>
             {message.sender === "bot" && (
-                <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center mr-2 shrink-0">
-                    <span className="text-white font-bold text-xs">RF</span>
+                <div className="w-8 h-8 rounded-full bg-black dark:bg-white flex items-center justify-center mr-2 shrink-0">
+                    <span className="text-white dark:text-black font-bold text-xs">RF</span>
                 </div>
             )}
             <div
                 className={`px-4 py-2 rounded-2xl max-w-[75%] text-sm break-words shadow-sm ${message.sender === "user"
-                        ? "bg-black text-white rounded-br-none"
-                        : "bg-gray-100 text-gray-800 rounded-bl-none border border-gray-200"
+                        ? "bg-black dark:bg-white text-white dark:text-black rounded-br-none"
+                        : "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-bl-none border border-gray-200 dark:border-gray-700"
                     }`}
             >
                 {message.sender === 'bot' ? (
                     <ReactMarkdown
                         components={{
                             a: ({ ...props }) => (
-                                <a {...props} className="font-semibold text-blue-600 underline" />
+                                <a {...props} className="font-semibold text-blue-600 dark:text-blue-400 underline" />
                             ),
                             strong: ({ ...props }) => (
                                 <strong {...props} className="font-semibold" />
@@ -110,8 +110,8 @@ const ChatBot = () => {
                 )}
             </div>
             {message.sender === "user" && (
-                <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center ml-2 shrink-0">
-                    <FaUser className="text-gray-500 text-xs" />
+                <div className="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center ml-2 shrink-0">
+                    <FaUser className="text-gray-500 dark:text-gray-400 text-xs" />
                 </div>
             )}
         </div>
@@ -127,15 +127,15 @@ const ChatBot = () => {
 
     const TypingIndicator = () => (
         <div className="flex items-start mb-3 justify-start text-sm animate-fadeIn">
-             <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center mr-2 shrink-0">
-                    <span className="text-white font-bold text-xs">RF</span>
+             <div className="w-8 h-8 rounded-full bg-black dark:bg-white flex items-center justify-center mr-2 shrink-0">
+                    <span className="text-white dark:text-black font-bold text-xs">RF</span>
                 </div>
 
-            <div className="px-4 py-3 rounded-2xl bg-gray-100 border border-gray-200 text-gray-800 rounded-bl-none flex items-center shadow-sm">
+            <div className="px-4 py-3 rounded-2xl bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-200 rounded-bl-none flex items-center shadow-sm">
                 <div className="flex space-x-1">
-                    <span className="w-2 h-2 bg-gray-500 rounded-full animate-bounce" />
-                    <span className="w-2 h-2 bg-gray-500 rounded-full animate-bounce" style={{ animationDelay: '0.12s' }} />
-                    <span className="w-2 h-2 bg-gray-500 rounded-full animate-bounce" style={{ animationDelay: '0.24s' }} />
+                    <span className="w-2 h-2 bg-gray-500 dark:bg-gray-400 rounded-full animate-bounce" />
+                    <span className="w-2 h-2 bg-gray-500 dark:bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.12s' }} />
+                    <span className="w-2 h-2 bg-gray-500 dark:bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.24s' }} />
                 </div>
             </div>
         </div>
@@ -154,14 +154,14 @@ const ChatBot = () => {
                         w-full h-screen sm:w-[360px] sm:h-[600px]
                         fixed sm:relative
                         top-0 left-0 sm:top-auto sm:left-auto
-                        bg-white shadow-2xl 
+                        bg-white dark:bg-gray-900 shadow-2xl 
                         sm:rounded-2xl 
                         flex flex-col overflow-hidden animate-fadeIn
-                        border border-gray-200
+                        border border-gray-200 dark:border-gray-800
                         z-50
                     ">
                     {/* Header */}
-                    <div className="flex items-center justify-between bg-black text-white px-4 py-3 sm:rounded-t-2xl">
+                    <div className="flex items-center justify-between bg-black dark:bg-gray-800 text-white px-4 py-3 sm:rounded-t-2xl">
                         <div className="flex items-center space-x-3">
                             <div className="relative">
                                 <div className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center">
@@ -184,14 +184,14 @@ const ChatBot = () => {
                     </div>
 
                     {/* Chat Messages */}
-                    <div className="flex-1 overflow-y-auto px-4 py-4 bg-gray-50 scrollbar-hide">
+                    <div className="flex-1 overflow-y-auto px-4 py-4 bg-gray-50 dark:bg-gray-950 scrollbar-hide">
                          {messages.length === 0 && (
                             <div className="text-center py-6">
-                                <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                                    <FaRobot className="text-2xl text-gray-400" />
+                                <div className="w-16 h-16 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <FaRobot className="text-2xl text-gray-400 dark:text-gray-500" />
                                 </div>
-                                <h3 className="font-semibold text-gray-800">Hi there! 👋</h3>
-                                <p className="text-sm text-gray-500 mt-1">
+                                <h3 className="font-semibold text-gray-800 dark:text-white">Hi there! 👋</h3>
+                                <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
                                     I am here to help you navigate my portfolio. specific. Ask me anything!
                                 </p>
                             </div>
@@ -206,7 +206,7 @@ const ChatBot = () => {
 
                     {/* Suggestions */}
                     {showSuggestions && (
-                        <div className="px-2 pb-2 bg-gray-50">
+                        <div className="px-2 pb-2 bg-gray-50 dark:bg-gray-950">
                              <SuggestionChips
                                 suggestions={chatbotSuggestions}
                                 onSelect={handleSuggestionSelect}
@@ -218,7 +218,7 @@ const ChatBot = () => {
                     )}
 
                     {/* Input Field */}
-                    <div className="p-3 bg-white border-t border-gray-100 sm:rounded-b-2xl">
+                    <div className="p-3 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 sm:rounded-b-2xl">
                         <div className="flex items-center space-x-2">
                             <input
                                 ref={inputRef}
@@ -228,12 +228,12 @@ const ChatBot = () => {
                                 onKeyPress={handleKeyPress}
                                 placeholder="Type a message..."
                                 disabled={isTyping}
-                                className="flex-1 px-4 py-2.5 text-sm bg-gray-100 border-none rounded-full focus:outline-none focus:ring-1 focus:ring-black/10 transition-all"
+                                className="flex-1 px-4 py-2.5 text-sm bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-white border-none rounded-full focus:outline-none focus:ring-1 focus:ring-black/10 dark:focus:ring-white/20 transition-all placeholder:text-gray-400"
                             />
                             <button
                                 onClick={handleSend}
                                 disabled={!userQuery.trim() || isTyping}
-                                className="p-2.5 bg-black text-white rounded-full hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                                className="p-2.5 bg-black dark:bg-white text-white dark:text-black rounded-full hover:bg-gray-800 dark:hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                             >
                                 <FiSend className="text-sm" />
                             </button>
@@ -243,7 +243,7 @@ const ChatBot = () => {
             ) : (
                 <button
                     onClick={() => setIsOpen(true)}
-                    className="group flex items-center justify-center w-14 h-14 bg-black text-white rounded-full shadow-xl hover:scale-110 active:scale-95 transition-all duration-300"
+                    className="group flex items-center justify-center w-14 h-14 bg-black dark:bg-white text-white dark:text-black rounded-full shadow-xl hover:scale-110 active:scale-95 transition-all duration-300"
                     aria-label="Open chatbot"
                 >
                     <FaRobot className="text-2xl group-hover:rotate-12 transition-transform" />

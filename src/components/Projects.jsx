@@ -25,7 +25,7 @@ const Projects = () => {
         : projectData.filter(project => project.category.includes(filter));
 
     return (
-        <div id='projects' className="py-20 px-4 min-h-screen bg-gray-50/50">
+        <div id='projects' className="py-20 px-4 min-h-screen bg-gray-50/50 dark:bg-background">
             <div className="max-w-7xl mx-auto">
                 <Heading
                     heading="Projects"
@@ -38,8 +38,8 @@ const Projects = () => {
                         <button
                             key={btn.value}
                             className={`py-2 px-6 rounded-full text-sm font-medium transition-all duration-300 ${filter === btn.value
-                                ? 'bg-black text-white shadow-lg scale-105'
-                                : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-100 hover:border-gray-300'
+                                ? 'bg-black text-white dark:bg-white dark:text-black shadow-lg scale-105'
+                                : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-gray-300'
                                 }`}
                             onClick={() => filterProjects(btn.value)}
                         >
@@ -76,7 +76,7 @@ const Projects = () => {
                 {/* No projects message */}
                 {filteredProjects.length === 0 && (
                     <div className="text-center py-16">
-                        <p className="text-gray-500 text-lg">No projects found in this category.</p>
+                        <p className="text-gray-500 dark:text-gray-400 text-lg">No projects found in this category.</p>
                     </div>
                 )}
             </div>

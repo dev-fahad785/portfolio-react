@@ -5,7 +5,7 @@ import Heading from "./Heading";
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-20 md:py-24 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
+    <section id="contact" className="py-20 md:py-24 bg-white dark:bg-background">
       <div className="container mx-auto px-4">
         {/* Heading */}
         <Heading

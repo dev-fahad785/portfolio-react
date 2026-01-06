@@ -144,7 +144,7 @@ const Skills = () => {
     };
 
     return (
-        <section id="skills" className="py-16 bg-white dark:bg-gray-900" ref={skillsRef}>
+        <section id="skills" className="py-16 bg-white dark:bg-background" ref={skillsRef}>
             <Heading heading={"Skills"} subHeading={"My Technical Proficiencies"} />
 
             <div className="container mx-auto px-4">

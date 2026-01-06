@@ -11,7 +11,7 @@ const AboutMe = () => {
     ];
 
     return (
-        <section id='about' className="py-16 px-6 md:px-8 lg:px-32 ">
+        <section id='about' className="py-16 px-6 md:px-8 lg:px-32 bg-white dark:bg-background transition-colors duration-300">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
