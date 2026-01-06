@@ -84,4 +84,6 @@ const Projects = () => {
     );
 };
 
-export default Projects;
+
+import SectionWrapper from './SectionWrapper';
+export default SectionWrapper(Projects, "projects");

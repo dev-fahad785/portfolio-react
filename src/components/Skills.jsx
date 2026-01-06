@@ -247,4 +247,6 @@ const Skills = () => {
     );
 };
 
-export default Skills;
+
+import SectionWrapper from './SectionWrapper';
+export default SectionWrapper(Skills, "skills");

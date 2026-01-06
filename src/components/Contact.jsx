@@ -76,4 +76,6 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+
+import SectionWrapper from './SectionWrapper';
+export default SectionWrapper(Contact, "contact");

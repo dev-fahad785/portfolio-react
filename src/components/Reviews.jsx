@@ -209,4 +209,6 @@ const Reviews = () => {
     );
 };
 
-export default Reviews;
+
+import SectionWrapper from './SectionWrapper';
+export default SectionWrapper(Reviews, "reviews");

@@ -80,4 +80,6 @@ const Certificates = () => {
     );
 };
 
-export default Certificates;
+
+import SectionWrapper from './SectionWrapper';
+export default SectionWrapper(Certificates, "certificates");

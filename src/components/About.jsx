@@ -95,4 +95,6 @@ const AboutMe = () => {
     );
 };
 
-export default AboutMe;
+
+import SectionWrapper from './SectionWrapper';
+export default SectionWrapper(AboutMe, "about");
