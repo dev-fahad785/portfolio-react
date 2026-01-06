@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 const AboutMe = () => {
     const stats = [
         { icon: "👥", title: "Education", detail: "B.Sc. Computer Science", institution: "Islamia University Bahawalpur" },
-        { icon: "🏅", title: "Trainee Software Engineer", detail: "6 Months", institution: "Aitch Tech Bahawalpur " },
+        { icon: "🏅", title: "Junior Software Engineer", detail: "6 Months", institution: "Aitch Tech Bahawalpur " },
         { icon: "🚀", title: "Projects", detail: "30+", institution: "Practice Projects" },
         { icon: "📚", title: "Learning", detail: "Angular + DSA", institution: "Beginner" }
     ];
