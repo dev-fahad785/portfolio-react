@@ -1,46 +1,48 @@
-// import {React} from 'react';
-import { useState, useEffect } from 'react';
+
+import { Suspense, lazy } from 'react';
+import { HelmetProvider } from 'react-helmet-async';
 import Navbar from './components/Navbar';
 import Banner from './components/Banner';
 import AboutMe from './components/About';
-import Projects from './components/Projects';
-import Certificates from './components/Certificates';
 import Contact from './components/Contact';
-import Skills from "./components/Skills";
-import Reviews from './components/Reviews';
-import Loader from './components/Loader'
-import Chatbot from './components/Chatbot';
+import Loader from './components/Loader';
 import { ScrollTimeline } from './components/lightswind/scroll-timeline';
-const App = () => {
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000); // Loading for 2 seconds
-    return () => clearTimeout(timer);
-  }, []);
-  return (
-    <>
-      {loading ? (
-        <Loader /> // Show the loader when loading
-      ) : (
+import SEO from './components/SEO';
 
-        <div className="font-poppins">
-          <Navbar />
-          <Banner />
-          <ScrollTimeline/>
-          <AboutMe />
+const Projects = lazy(() => import('./components/Projects'));
+const Certificates = lazy(() => import('./components/Certificates'));
+const Skills = lazy(() => import("./components/Skills"));
+const Reviews = lazy(() => import('./components/Reviews'));
+const Chatbot = lazy(() => import('./components/Chatbot'));
+
+const App = () => {
+  return (
+    <HelmetProvider>
+      <SEO 
+        title="Muhammad Fahad | Portfolio" 
+        description="Portfolio of Muhammad Fahad, a Junior Software Engineer specializing in React and frontend development." 
+        name="Muhammad Fahad" 
+        type="website" 
+      />
+      <div className="font-poppins">
+        <Navbar />
+        <Banner />
+        <ScrollTimeline/>
+        <AboutMe />
+        <Suspense fallback={<div className="h-96 flex items-center justify-center"><Loader /></div>}>
           <Reviews />
           <Skills />
           <Projects />
           <Certificates />
-          <Contact />
+        </Suspense>
+        <Contact />
+        <Suspense fallback={null}>
           <Chatbot />
-        </div>// Show the page content when loading is done
-      )}
-
-    </>
-
+        </Suspense>
+      </div>
+    </HelmetProvider>
   );
 };
+
 export default App;
+
