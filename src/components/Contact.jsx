@@ -63,14 +63,14 @@ const Contact = () => {
         </div>
 
         {/* Email/Action CTA */}
-        <div className="text-center mt-12 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">
+        {/* <div className="text-center mt-12 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">
            <a 
               href="mailto:contact@rfgul.live"
               className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-black hover:bg-gray-800 md:py-4 md:text-lg md:px-10 transition-transform hover:scale-105 shadow-lg"
            >
               Say Hello
            </a>
-        </div>
+        </div> */}
       </div>
     </section>
   );
