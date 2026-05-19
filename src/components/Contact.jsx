@@ -1,6 +1,6 @@
 
-import { FaInstagram, FaGithub, FaLinkedin } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaInstagram, FaGithub, FaLinkedin,FaTiktok } from "react-icons/fa";
+// import { FaXTwitter } from "react-icons/fa6";
 import Heading from "./Heading";
 
 const Contact = () => {
@@ -29,7 +29,7 @@ const Contact = () => {
 
             {/* GitHub */}
             <a
-              href="https://github.com/dev-rfgul"
+              href="https://github.com/dev-fahad785"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative p-4 bg-gray-50 dark:bg-gray-800 rounded-full shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1"
@@ -40,7 +40,7 @@ const Contact = () => {
 
             {/* LinkedIn */}
             <a
-              href="https://www.linkedin.com/in/rao-fatir-3363362a6/"
+              href="https://www.linkedin.com/in/fahad785"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative p-4 bg-gray-50 dark:bg-gray-800 rounded-full shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1"
@@ -49,15 +49,15 @@ const Contact = () => {
               <FaLinkedin className="text-3xl text-gray-700 dark:text-gray-300 group-hover:text-[#0077B5] transition-colors duration-300" />
             </a>
 
-            {/* Twitter/X */}
+            {/* TikTok */}
             <a
-              href="https://x.com/rfgul_"
+              href="https://www.tiktok.com/@fahadgul.dev"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative p-4 bg-gray-50 dark:bg-gray-800 rounded-full shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1"
-              aria-label="Twitter"
+              aria-label="TikTok"
             >
-              <FaXTwitter className="text-3xl text-gray-700 dark:text-gray-300 group-hover:text-black dark:group-hover:text-white transition-colors duration-300" />
+              <FaTiktok className="text-3xl text-gray-700 dark:text-gray-300 group-hover:text-black dark:group-hover:text-white transition-colors duration-300" />
             </a>
           </div>
         </div>
