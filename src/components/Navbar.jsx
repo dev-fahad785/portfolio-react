@@ -56,9 +56,11 @@ const Navbar = () => {
                                 <li key={link.name}>
                                     <ScrollLink
                                         to={link.to}
+                                        spy={true}
                                         smooth={true}
                                         duration={500}
                                         offset={-70} 
+                                        activeClass="text-black dark:text-white"
                                         className="hover:text-black dark:hover:text-white cursor-pointer transition-colors relative group"
                                     >
                                         {link.name}
@@ -78,7 +80,7 @@ const Navbar = () => {
                         </button>
 
                          <a 
-                            href="/images/cv.pdf" 
+                            href="/images/CV_Fahad.pdf" 
                             download 
                             className="px-5 py-2 bg-black dark:bg-white text-white dark:text-black rounded-full text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition-transform hover:scale-105 shadow-lg"
                         >
@@ -107,12 +109,14 @@ const Navbar = () => {
                     <ul className="flex flex-col p-4 space-y-4 text-center">
                         {navLinks.map((link) => (
                             <li key={link.name}>
-                                <ScrollLink
-                                    to={link.to}
-                                    smooth={true}
-                                    duration={500}
-                                    offset={-70}
-                                    className="block text-lg font-medium text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer"
+                                    <ScrollLink
+                                        to={link.to}
+                                        spy={true}
+                                        smooth={true}
+                                        duration={500}
+                                        offset={-70}
+                                        activeClass="text-black dark:text-white"
+                                        className="block text-lg font-medium text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer"
                                     onClick={() => setMenuOpen(false)} 
                                 >
                                     {link.name}
@@ -121,7 +125,7 @@ const Navbar = () => {
                         ))}
                          <li>
                              <a 
-                                href="/images/cv.pdf" 
+                                href="/images/CV_Fahad.pdf" 
                                 download 
                                 className="inline-block px-6 py-2 bg-black dark:bg-white text-white dark:text-black rounded-full text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition-transform"
                             >

@@ -17,7 +17,7 @@ const Card = ({
 
   return (
     <div
-      className="group w-full max-w-sm bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 hover:border-black/10 dark:hover:border-white/20 p-6 transition-all duration-500 hover:shadow-xl hover:shadow-gray-100/50 dark:hover:shadow-black/50 cursor-pointer relative overflow-hidden flex flex-col h-96"
+      className="group w-full max-w-sm bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 hover:border-black/10 dark:hover:border-white/20 p-6 transition-all duration-500 hover:shadow-xl hover:shadow-gray-100/50 dark:hover:shadow-black/50 cursor-pointer relative overflow-hidden flex flex-col min-h-[24rem]"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -64,6 +64,19 @@ const Card = ({
                 </span>
               ))}
               {tags.length > 5 && <span className="text-xs text-gray-400 dark:text-gray-500">+{tags.length - 5}</span>}
+              {features.length > 0 && (
+                <div className="mt-3 flex w-full flex-col gap-1.5 md:hidden">
+                  {features.slice(0, 2).map((feature, index) => (
+                    <div
+                      key={index}
+                      className="flex items-start gap-2 text-xs text-gray-700 dark:text-gray-300"
+                    >
+                      <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-black dark:bg-white" />
+                      <span className="leading-tight">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
 
           {/* Features (shown when hovered) - Only if features exist */}

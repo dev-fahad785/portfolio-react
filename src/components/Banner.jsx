@@ -4,13 +4,14 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 // import React from "react";
 import ShinyButton from '@/components/magicui/shiny-button';
 import { TypeAnimation } from 'react-type-animation';
+import { Link as ScrollLink } from 'react-scroll';
 
 const Banner = () => {
     return (
         <div id='home' className="p-5 md:p-10 lg:mt-20  md:mt-18 mt-4  rounded-lg  bg-white dark:bg-background transition-colors duration-300">
             <div className="flex flex-col md:flex-row items-center">
                 <div className="md:w-1/2 text-black dark:text-white mb-3 md:mb-0 md:pr-8 flex flex-col items-center justify-center">
-                    <div className="text-center md:text-left lg:mb-8 md:mb-4 flex flex-col items-center">
+                    <div className="text-center lg:mb-8 md:mb-4 flex flex-col items-center">
                         <h1 className="text-lg text-gray-700 dark:text-gray-300 mb-2 transition-transform duration-500 ease-in-out transform hover:scale-105 hover:text-black dark:hover:text-white">
                             Hello, I am
                         </h1>
@@ -33,10 +34,22 @@ const Banner = () => {
                                 repeat={Infinity}
                             />
                         </div>
+                        <p className="max-w-xl text-sm md:text-base leading-relaxed text-gray-600 dark:text-gray-300">
+                            I build responsive full-stack web apps with React, Node.js, Django, and practical deployment experience.
+                        </p>
 
                     </div>
-                    <div className="flex justify-center md:justify-start mb-4">
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-4">
                         <ShinyButton text='Download CV' className="bg-black dark:bg-white text-white dark:text-black"/>
+                        <ScrollLink
+                            to="projects"
+                            smooth={true}
+                            duration={500}
+                            offset={-70}
+                            className="cursor-pointer rounded-lg border border-gray-300 dark:border-gray-600 px-6 py-2 text-sm font-medium text-gray-800 dark:text-gray-100 hover:border-black dark:hover:border-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                        >
+                            View Projects
+                        </ScrollLink>
                     </div>
 
                     {/* Icons Section */}

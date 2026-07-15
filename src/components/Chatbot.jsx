@@ -68,7 +68,7 @@ const ChatBot = () => {
         bottomRef.current?.scrollIntoView({ behavior: "smooth" });
     }, [messages, isTyping]);
 
-    const handleKeyPress = (e) => {
+    const handleKeyDown = (e) => {
         if (e.key === "Enter") handleSend();
     };
 
@@ -192,7 +192,7 @@ const ChatBot = () => {
                                 </div>
                                 <h3 className="font-semibold text-gray-800 dark:text-white">Hi there! 👋</h3>
                                 <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-                                    I am here to help you navigate my portfolio. specific. Ask me anything!
+                                    I am here to help you navigate my portfolio. Ask me anything about my skills, projects, or experience.
                                 </p>
                             </div>
                         )}
@@ -225,7 +225,7 @@ const ChatBot = () => {
                                 type="text"
                                 value={userQuery}
                                 onChange={(e) => setUserQuery(e.target.value)}
-                                onKeyPress={handleKeyPress}
+                                onKeyDown={handleKeyDown}
                                 placeholder="Type a message..."
                                 disabled={isTyping}
                                 className="flex-1 px-4 py-2.5 text-sm bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-white border-none rounded-full focus:outline-none focus:ring-1 focus:ring-black/10 dark:focus:ring-white/20 transition-all placeholder:text-gray-400"

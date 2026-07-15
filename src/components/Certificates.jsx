@@ -29,7 +29,7 @@ const Certificates = () => {
     return (
         <div id='certificates' className="py-20 px-4 min-h-screen bg-white dark:bg-background">
             <div className="max-w-7xl mx-auto">
-                <Heading heading={"Certifications"} subHeading={`Certifications I Have ${certificateData.length}`}/>
+                <Heading heading={"Certifications"} subHeading={`${certificateData.length} certifications across web, data, SQL, OS, and extracurricular work`}/>
                 
                 {/* Filter Buttons */}
                 <div className="flex flex-wrap justify-center gap-3 mb-12">

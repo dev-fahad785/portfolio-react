@@ -16,8 +16,8 @@ const slugs = [...new Set(Object.values(skillsData)
 
 
 const SkillItem = ({ skill, showExperience = false }) => {
-    const stars = Array(5).fill(0);
     const CustomIcon = skill.customIcon === "windows" ? FaWindows : null;
+    const proficiency = skill.level >= 4 ? "Comfortable" : skill.level === 3 ? "Working knowledge" : "Learning";
 
     return (
         <div className="flex items-center justify-between p-3 rounded-lg border border-gray-200 bg-white dark:bg-gray-800 dark:border-gray-700 shadow-sm transition-all duration-300 hover:scale-102 hover:shadow-md hover:border-black dark:hover:border-gray-500 group">
@@ -42,13 +42,9 @@ const SkillItem = ({ skill, showExperience = false }) => {
                     )}
                 </div>
             </div>
-            <div className="flex text-gray-600">
-                {stars.map((_, index) => (
-                    <span key={index} className="text-lg">
-                        {index < skill.level ? "★" : "☆"}
-                    </span>
-                ))}
-            </div>
+            <span className="ml-3 shrink-0 rounded-full bg-gray-100 px-2.5 py-1 text-xs font-medium text-gray-600 dark:bg-gray-700 dark:text-gray-300">
+                {/* {proficiency} */}
+            </span>
         </div>
     );
 };
@@ -81,17 +77,16 @@ const Skills = () => {
     }, []);
 
     const categories = [
-        { id: "frontend", label: "Frontend" },
-        { id: "backend", label: "Backend" },
-        { id: "databases", label: "Databases" },
-        { id: "deployment", label: "Deployment" },
-        { id: "aws", label:"AWS(Basics)"},
-        { id: "devops", label:"DevOps"},
-        { id: "languages", label: "Languages" },
-        { id: "eda", label: "EDA" },
-        { id: "versioncontrol", label: "Version Control" },
-        { id: "operatingsystem", label: "OS" },
+        { id: "frontend", label: "Frontend", groups: ["frontend"] },
+        { id: "backend", label: "Backend", groups: ["backend"] },
+        { id: "databases", label: "Databases", groups: ["databases"] },
+        { id: "cloudDevops", label: "Cloud & DevOps", groups: ["deployment", "aws", "devops"] },
+        { id: "languages", label: "Languages", groups: ["languages"] },
+        { id: "data", label: "Data", groups: ["eda"] },
+        { id: "tools", label: "Tools & OS", groups: ["versioncontrol", "operatingsystem"] },
     ];
+    const activeCategory = categories.find(c => c.id === activeTab) || categories[0];
+    const activeSkills = activeCategory.groups.flatMap(group => skillsData[group] || []);
 
     const container = {
         hidden: { opacity: 0 },
@@ -154,8 +149,8 @@ const Skills = () => {
                             {/* All Skills in Category */}
                             <div>
                                 <h3 className="text-xl font-semibold mb-4 flex items-center text-gray-800 dark:text-white">
-                                    All {categories.find(c => c.id === activeTab)?.label} Skills
-                                    <span className="ml-2 text-sm font-normal text-gray-500 dark:text-gray-400">({skillsData[activeTab].length})</span>
+                                    All {activeCategory.label} Skills
+                                    <span className="ml-2 text-sm font-normal text-gray-500 dark:text-gray-400">({activeSkills.length})</span>
                                 </h3>
                                 <motion.div
                                     className="grid grid-cols-1 md:grid-cols-2 gap-3"
@@ -164,7 +159,7 @@ const Skills = () => {
                                     animate="show"
                                     key={activeTab}
                                 >
-                                    {skillsData[activeTab].map((skill, index) => (
+                                    {activeSkills.map((skill, index) => (
                                         <motion.div key={index} variants={item}>
                                             <SkillItem skill={skill} showExperience={true} />
                                         </motion.div>
