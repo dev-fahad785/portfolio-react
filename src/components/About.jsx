@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 const AboutMe = () => {
     const stats = [
         { icon: "👥", title: "Education", detail: "B.Sc. Computer Science", institution: "Islamia University Bahawalpur" },
-        { icon: "🏅", title: "Junior Software Engineer", detail: "6 Months", institution: "Aitch Tech Bahawalpur " },
+        { icon: "🏅", title: "Junior Software Engineer", detail: "1+ Year", institution: "Aitch Tech Bahawalpur" },
         { icon: "🚀", title: "Projects", detail: "30+", institution: "Practice Projects" },
         { icon: "📚", title: "Learning", detail: "Angular + DSA", institution: "Beginner" }
     ];
@@ -55,14 +55,17 @@ const AboutMe = () => {
                 >
                     <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4 text-center">My Journey</h3>
 
-                    <p className="text-base sm:text-lg leading-relaxed text-gray-700 dark:text-gray-300 text-justify">
-                        I am a <span className="font-bold text-black dark:text-white">Trainee Software Engineer</span> - Full Stack with
-                        <span className="font-bold text-black dark:text-white"> 6+ Months</span> of experience in Full Stack Web Development
-                        <span className="font-bold text-black dark:text-white"> MERN & Django</span>. I have worked on
-                        <span className="font-bold text-black dark:text-white"> 30+ practice projects</span> which included
-                        <a target="_blank" href="https://www.taskai.studio" className="text-blue-800 dark:text-blue-400 font-medium"> Task AI Studio</a>,a tool for people with short term memeory,
-                        <a href="https://www.glowzlifestyle.shop" target="_blank" className="text-blue-800 dark:text-blue-400 font-medium"> Glowz Lifestyle</a> fully functional Ecom Website , and
-                        <a href="https://busconnect.pythonanywhere.com/" className="text-blue-800 dark:text-blue-400 font-medium"> Smart Univ Bus Management System</a> which gave me a good understanding of Full Stack development.
+                    <p className="text-base sm:text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                        I am a <span className="font-bold text-black dark:text-white">Trainee Software Engineer</span> focused on full-stack web development with
+                        <span className="font-bold text-black dark:text-white"> MERN, Django, and deployment</span> experience. I have built
+                        <span className="font-bold text-black dark:text-white"> 30+ practice projects</span>, including production-style apps that cover authentication, dashboards, APIs, and responsive UI.
+                    </p>
+
+                    <p className="mt-4 text-base sm:text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                        Notable work includes
+                        <a target="_blank" rel="noopener noreferrer" href="https://www.taskai.studio" className="text-blue-800 dark:text-blue-400 font-medium"> Task AI Studio</a>, a productivity tool for people with short-term memory challenges,
+                        <a href="https://www.glowzlifestyle.shop" target="_blank" rel="noopener noreferrer" className="text-blue-800 dark:text-blue-400 font-medium"> Glowz Lifestyle</a>, a full ecommerce website, and
+                        <a href="https://fyp-subis-frontend.vercel.app//" target="_blank" rel="noopener noreferrer" className="text-blue-800 dark:text-blue-400 font-medium"> Smart University Transport System</a>, which uses path finding and transport scheduling.
                     </p>
 
                     <div className="mt-6 flex flex-wrap gap-2 text-center justify-center">

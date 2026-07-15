@@ -13,12 +13,27 @@ const Contact = () => {
           subHeading="Let's build something amazing together"
         />
 
-        <div className="flex flex-col md:flex-row justify-center items-center gap-12 mt-12">
+        <div className="mx-auto mt-12 max-w-3xl rounded-2xl border border-gray-200 bg-gray-50 p-6 text-center shadow-sm dark:border-gray-800 dark:bg-gray-900/60">
+          <p className="text-lg font-semibold text-gray-900 dark:text-white">
+            Open to junior software engineer, frontend, and full-stack roles.
+          </p>
+          <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
+            Based in Pakistan. Available for remote collaboration, internships, and entry-level engineering opportunities.
+          </p>
+          <a
+            href="mailto:devfahad785@gmail.com"
+            className="mt-5 inline-flex items-center justify-center rounded-lg bg-black px-6 py-3 text-sm font-medium text-white shadow-md transition-colors hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
+          >
+            Email Me
+          </a>
+        </div>
+
+        <div className="flex flex-col md:flex-row justify-center items-center gap-12 mt-8">
           {/* Social Links Container */}
           <div className="flex flex-wrap justify-center gap-6 md:gap-8">
             {/* Instagram */}
             <a
-              href="https://www.instagram.com/rfgul_/"
+              href="https://www.instagram.com/fahadgul.dev/"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative p-4 bg-gray-50 dark:bg-gray-800 rounded-full shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1"
