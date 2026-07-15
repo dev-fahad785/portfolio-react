@@ -1,12 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import { useTheme } from "next-themes";
-import {
-    Cloud,
-    fetchSimpleIcons,
-    renderSimpleIcon,
-} from "react-icon-cloud";
+import { useMemo } from "react";
+import { Cloud } from "react-icon-cloud";
 
 export const cloudProps = {
     containerProps: {
@@ -22,7 +17,9 @@ export const cloudProps = {
         reverse: true,
         depth: 1,
         wheelZoom: false,
+        imageMode: "image",
         imageScale: 2,
+        txtOpt: false,
         activeCursor: "default",
         tooltip: "native",
         initial: [0.1, -0.1],
@@ -34,41 +31,32 @@ export const cloudProps = {
     },
 };
 
-export const renderCustomIcon = (icon, theme) => {
-    const bgHex = theme === "light" ? "#f3f2ef" : "#080510";
-    const fallbackHex = theme === "light" ? "#6e6e73" : "#ffffff";
-    const minContrastRatio = theme === "dark" ? 2 : 1.2;
+export const renderCustomIcon = (slug) => {
+    const label = slug
+        .replace(/dot/g, ".")
+        .replace(/([a-z])([A-Z])/g, "$1 $2");
 
-    return renderSimpleIcon({
-        icon,
-        bgHex,
-        fallbackHex,
-        minContrastRatio,
-        size: 42,
-        aProps: {
-            href: undefined,
-            target: undefined,
-            rel: undefined,
-            onClick: (e) => e.preventDefault(),
-        },
-    });
+    return (
+        <a
+            key={slug}
+            title={label}
+            href="#skills"
+            onClick={(e) => e.preventDefault()}
+        >
+            <img
+                height="42"
+                width="42"
+                alt={label}
+                src={`https://cdn.simpleicons.org/${slug}`}
+            />
+        </a>
+    );
 };
 
 export default function IconCloud({ iconSlugs }) {
-    const [data, setData] = useState(null);
-    const { theme } = useTheme();
-
-    useEffect(() => {
-        fetchSimpleIcons({ slugs: iconSlugs }).then(setData);
-    }, [iconSlugs]);
-
     const renderedIcons = useMemo(() => {
-        if (!data) return null;
-
-        return Object.values(data.simpleIcons).map((icon) =>
-            renderCustomIcon(icon, theme || "light")
-        );
-    }, [data, theme]);
+        return iconSlugs.map(renderCustomIcon);
+    }, [iconSlugs]);
 
     return (
         // @ts-ignore

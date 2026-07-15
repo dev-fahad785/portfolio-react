@@ -5,72 +5,34 @@ import React, { useState, useEffect, useRef } from 'react';
 import Heading from './Heading';
 import { motion } from 'framer-motion';
 import { skillsData } from '../data/skills';
+import { FaWindows } from 'react-icons/fa';
 
 // Extract all slugs for the icon cloud
-const slugs = Object.values(skillsData)
+const slugs = [...new Set(Object.values(skillsData)
     .flat()
     .map(skill => skill.slug)
-    .filter(slug => slug !== null);
+    .filter(Boolean))];
 
-const SkillProgress = ({ level, name, animated = false }) => {
-    const percentage = (level / 5) * 100;
-    const progressRef = useRef(null);
-    const [isVisible, setIsVisible] = useState(false);
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                    observer.disconnect();
-                }
-            },
-            { threshold: 0.1 }
-        );
-
-        if (progressRef.current) {
-            observer.observe(progressRef.current);
-        }
-
-        return () => {
-            if (progressRef.current) {
-                observer.disconnect();
-            }
-        };
-    }, []);
-
-    return (
-        <div className="w-full" ref={progressRef}>
-            <div className="flex justify-between mb-1">
-                <span className="text-base font-medium text-gray-800 dark:text-gray-200">{name}</span>
-                <span className="text-sm font-medium text-gray-600 dark:text-gray-400">{level}/5</span>
-            </div>
-            <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                <div
-                    className="bg-gray-600 h-2.5 rounded-full dark:bg-gray-500 transition-all duration-1000 ease-out"
-                    style={{
-                        width: animated && isVisible ? `${percentage}%` : '0%',
-                        transition: animated && isVisible ? 'width 1s ease-out' : 'none'
-                    }}
-                ></div>
-            </div>
-        </div>
-    );
-};
 
 const SkillItem = ({ skill, showExperience = false }) => {
     const stars = Array(5).fill(0);
+    const CustomIcon = skill.customIcon === "windows" ? FaWindows : null;
 
     return (
         <div className="flex items-center justify-between p-3 rounded-lg border border-gray-200 bg-white dark:bg-gray-800 dark:border-gray-700 shadow-sm transition-all duration-300 hover:scale-102 hover:shadow-md hover:border-black dark:hover:border-gray-500 group">
             <div className="flex items-center gap-3">
-                {skill.slug && (
+                {(skill.slug || CustomIcon) && (
                     <div className="w-8 h-8 flex items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-md group-hover:bg-blue-50 dark:group-hover:bg-blue-900/30 transition-colors">
-                        <img
-                            src={`https://cdn.simpleicons.org/${skill.slug}/111`}
-                            alt={skill.name}
-                            className="w-5 h-5 dark:invert"
-                        />
+                        {CustomIcon ? (
+                            <CustomIcon aria-label={skill.name} className="w-5 h-5 text-[#0078D4]" />
+                        ) : (
+                            <img
+                                src={`https://cdn.simpleicons.org/${skill.slug}`}
+                                alt={skill.name}
+                                className="w-5 h-5"
+                            />
+                        )}
                     </div>
                 )}
                 <div>
@@ -121,9 +83,12 @@ const Skills = () => {
     const categories = [
         { id: "frontend", label: "Frontend" },
         { id: "backend", label: "Backend" },
+        { id: "databases", label: "Databases" },
+        { id: "deployment", label: "Deployment" },
+        { id: "aws", label:"AWS(Basics)"},
+        { id: "devops", label:"DevOps"},
         { id: "languages", label: "Languages" },
         { id: "eda", label: "EDA" },
-        { id: "deployment", label: "Deployment" },
         { id: "versioncontrol", label: "Version Control" },
         { id: "operatingsystem", label: "OS" },
     ];
@@ -171,12 +136,12 @@ const Skills = () => {
                             </div> */}
 
                             {/* Tabs Navigation */}
-                            <div className="flex overflow-x-auto space-x-2 mb-6 pb-2 scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600">
+                            <div className="flex flex-wrap gap-2 mb-6">
                                 {categories.map((category) => (
                                     <button
                                         key={category.id}
                                         onClick={() => setActiveTab(category.id)}
-                                        className={`px-4 py-2 text-sm font-medium rounded-md whitespace-nowrap transition-colors ${activeTab === category.id
+                                        className={`px-3 py-2 text-sm font-medium rounded-md whitespace-nowrap transition-colors ${activeTab === category.id
                                             ? "bg-gray-500 text-white"
                                             : "bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600"
                                             }`}
@@ -184,24 +149,6 @@ const Skills = () => {
                                         {category.label}
                                     </button>
                                 ))}
-                            </div>
-
-                            {/* Top Skills Progress Bars */}
-                            <div className="mb-8">
-                                <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-white">Top Skills</h3>
-                                <div className="space-y-4">
-                                    {skillsData[activeTab]
-                                        .sort((a, b) => a.level - b.level)
-                                        .slice(0, 3)
-                                        .map((skill, index) => (
-                                            <SkillProgress
-                                                key={index}
-                                                name={skill.name}
-                                                level={skill.level}
-                                                animated={isVisible}
-                                            />
-                                        ))}
-                                </div>
                             </div>
 
                             {/* All Skills in Category */}
