@@ -152,4 +152,13 @@ export const certificateData = [
         githubLink: 'images/certificates/painting.jpg',
         liveDemoLink: '#',
     },
+    {
+        image: 'images/certificates/painting.jpg',
+        title: 'Intro to Agentic Skills',
+        tags: ['AI', 'Claude Code', 'Agentic AI'],
+        category: ['featured', 'AI'],
+        githubLink: 'images/certificates/painting.jpg',
+        liveDemoLink: '#',
+    },
+
 ];
