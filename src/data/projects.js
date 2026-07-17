@@ -6,8 +6,8 @@ export const projectData = [
         features: ['Distributed MicroServices Architecture',  'Real-time Bus Tracking', 'Admin Dashboard','Redis Caching', 'Dockerized Deployment', 'CI/CD Pipeline'],
         tags: ['React', 'NEST JS', 'Node JS', 'PostgreSQL', 'MongoDB','Redis','Docker', 'Microservices'],
         category: ['React', 'Featured'],
-        githubLink: '',
-        liveDemoLink: 'https://dev-rfgul.github.io/portfolio-react/',
+        githubLink: 'https://github.com/dev-fahad785/fYP-SUBIS',
+        liveDemoLink: 'https://fyp-subis-frontend.vercel.app/',
     },
     {
         title: 'Shopping Cart',
