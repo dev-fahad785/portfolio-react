@@ -42,7 +42,7 @@ const Card = ({
         {/* Tags */}
         {tags.length > 0 && (
           <div className="flex flex-wrap gap-1.5 mb-3">
-            {tags.slice(0, 5).map((tag, index) => (
+            {tags.slice(0, 9).map((tag, index) => (
               <span
                 key={index}
                 className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-xs rounded-md font-medium border border-gray-200 dark:border-gray-600"
@@ -57,7 +57,7 @@ const Card = ({
         {/* Features */}
         {features.length > 0 && (
           <div className="flex-grow space-y-1.5">
-            {features.slice(0, 3).map((feature, index) => (
+            {features.slice(0, 6).map((feature, index) => (
               <div key={index} className="flex items-start gap-2 text-xs text-gray-700 dark:text-gray-300">
                 <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-black dark:bg-white" />
                 <span className="leading-tight">{feature}</span>
