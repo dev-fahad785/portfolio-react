@@ -1,6 +1,15 @@
 
 export const projectData = [
     {
+        title: 'FYP (SUBIS)',
+        description: 'A Distributed Microservices System for University Bus Timetable  Real-time Tracking and Admin Dashboard',
+        features: ['MicroServices Architecture', 'Bus Timetable', 'Real-time Tracking', 'Admin Dashboard'],
+        tags: ['React', 'NEST JS', 'Node JS', 'PostgreSQL', 'MongoDB','Redis','Docker', 'Microservices'],
+        category: ['React', 'Featured'],
+        githubLink: '',
+        liveDemoLink: 'https://dev-rfgul.github.io/portfolio-react/',
+    },
+    {
         title: 'Shopping Cart',
         description: 'OOP-based shopping cart system with file handling capabilities',
         features: ['Object-Oriented Design', 'File I/O Operations', 'CLI Interface', 'Data Persistence'],

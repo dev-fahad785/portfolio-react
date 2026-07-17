@@ -153,11 +153,11 @@ export const certificateData = [
         liveDemoLink: '#',
     },
     {
-        image: 'images/certificates/painting.jpg',
+        image: 'images/certificates/agentic-skills.png',
         title: 'Intro to Agentic Skills',
         tags: ['AI', 'Claude Code', 'Agentic AI'],
         category: ['featured', 'AI'],
-        githubLink: 'images/certificates/painting.jpg',
+        githubLink: 'https://verify.skilljar.com/c/3553p6cj53dp',
         liveDemoLink: '#',
     },
 

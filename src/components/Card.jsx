@@ -18,12 +18,15 @@ const Card = ({
 
       <div className="relative z-10 flex flex-col flex-grow h-full">
         {image ? (
-          <div className="relative w-full h-48 mb-4 overflow-hidden rounded-lg">
-            <img
-              className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
-              src={image}
-              alt={title}
-            />
+          <div className="mb-3 flex-shrink-0">
+            <div className="relative w-full h-48 mb-3 overflow-hidden rounded-lg">
+              <img
+                className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+                src={image}
+                alt={title}
+              />
+            </div>
+            <h3 className="font-bold text-xl text-gray-900 dark:text-white">{title}</h3>
           </div>
         ) : (
           <div className="mb-3 flex-shrink-0">
@@ -33,7 +36,6 @@ const Card = ({
                 {description}
               </p>
             )}
-            {image && <h3 className="font-bold text-xl mt-3 text-gray-900 dark:text-white">{title}</h3>}
           </div>
         )}
 
