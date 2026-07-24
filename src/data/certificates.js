@@ -160,5 +160,13 @@ export const certificateData = [
         githubLink: 'https://verify.skilljar.com/c/3553p6cj53dp',
         liveDemoLink: '#',
     },
+    {
+        image: 'images/certificates/claude-101.png',
+        title: 'Claude 101',
+        tags: ['Using Claude', 'Connecters', 'Project & Skills'],
+        category: ['featured', 'AI'],
+        githubLink: 'https://verify.skilljar.com/c/kgbwjbaowumq',
+        liveDemoLink: '#',
+    },
 
 ];
